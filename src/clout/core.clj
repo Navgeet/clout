@@ -21,8 +21,8 @@
   "More consistant re-groups that always returns a vector of groups, even if
   there is only one group."
   [^Matcher matcher]
-  (for [i (range (.groupCount matcher))]
-    (.group matcher (int (inc i)))))
+  (remove nil? (for [i (range (.groupCount matcher))]
+                 (.group matcher (int (inc i)))))
 
 ;; Route matching
 
